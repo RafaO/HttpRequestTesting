@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -10,6 +11,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,9 +21,26 @@ android {
     }
 }
 
+
+final SUPPORT_VERSION = '23.1.1'
+final DEXMAKER_VERSION = '1.2'
+final DAGGER_VERSION = '2.0.1'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
 
     compile 'com.mcxiaoke.volley:library:1.0.17'
+
+    // tests
+//    androidTestCompile "com.android.support:support-annotations:${SUPPORT_VERSION}" // we force the tests to use the same version as the app
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+//    androidTestCompile 'com.android.support.test:runner:0.3'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.2'
+//    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.0')
+//    androidTestCompile('com.squareup.okhttp:mockwebserver:2.5.0')
+//    androidTestCompile "org.mockito:mockito-core:2.0.14-beta"
+//    androidTestCompile "com.google.dexmaker:dexmaker:${DEXMAKER_VERSION}"
+//    androidTestCompile "com.google.dexmaker:dexmaker-mockito:${DEXMAKER_VERSION}"
+//    androidTestApt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
 }
