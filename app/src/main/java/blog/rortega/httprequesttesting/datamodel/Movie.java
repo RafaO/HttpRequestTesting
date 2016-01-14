@@ -18,6 +18,16 @@ public class Movie {
     @JsonProperty("Director")
     private String mDirector;
 
+    public Movie() {
+        // needed empty constructor for the conversion from JSON to work
+    }
+
+    public Movie(String title, int year, String director) {
+        mTitle = title;
+        mYear = year;
+        mDirector = director;
+    }
+
     public String getTitle() {
         return mTitle;
     }

@@ -45,9 +45,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response<Movie> response, Retrofit retrofit) {
                 Movie movie = response.body();
-                mTitleTextView.setText(movie.getTitle());
-                mYearTextView.setText(String.valueOf(movie.getYear()));
-                mDirectorTextView.setText(movie.getDirector());
+                if (response.code() == 200 && movie != null) {
+                    mTitleTextView.setText(movie.getTitle());
+                    mYearTextView.setText(String.valueOf(movie.getYear()));
+                    mDirectorTextView.setText(movie.getDirector());
+                } else
+                    showErrorView();
             }
 
             @Override
