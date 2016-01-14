@@ -9,7 +9,7 @@ import retrofit.http.GET;
  */
 public interface ApiService {
 
-    @GET("http://www.omdbapi.com/?t=frozen&y=2015&plot=short&r=json")
+    @GET("?t=frozen&y=2015&plot=short&r=json")
     Call<Movie> movie();
 
 }
